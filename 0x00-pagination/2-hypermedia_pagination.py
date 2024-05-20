@@ -8,6 +8,7 @@ from typing import List, Dict
 
 index_range = __import__('0-simple_helper_function').index_range
 
+
 class Server:
     """Server class to paginate a database of popular baby names."""
     DATA_FILE = "Popular_Baby_Names.csv"
@@ -26,22 +27,19 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Retrieve a page from the dataset"""
-        assert type(page) == int and page > 0
-        assert type(page_size) == int and page_size > 0
+        assert isinstance(page) == int and page > 0
+        assert isinstance(page_size) == int and page_size > 0
 
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
-        
         if start_index >= len(dataset):
             return []
-        
         return dataset[start_index:end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """Retrieve a page and metadata for hypermedia pagination"""
         data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
-        
         return {
             "page_size": len(data),
             "page": page,
