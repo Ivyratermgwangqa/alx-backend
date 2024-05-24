@@ -6,6 +6,7 @@ This module provides a caching system with LIFO replacement policy.
 
 from base_caching import BaseCaching
 
+
 class LIFOCache(BaseCaching):
     """
     LIFOCache class
