@@ -6,6 +6,7 @@ This module provides a caching system with FIFO replacement policy.
 
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """
     FIFOCache class
