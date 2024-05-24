@@ -7,6 +7,7 @@ This module provides a caching system with LFU replacement policy.
 from base_caching import BaseCaching
 from collections import defaultdict
 
+
 class LFUCache(BaseCaching):
     """
     LFUCache class
