@@ -6,6 +6,7 @@ This module provides a caching system with MRU replacement policy.
 
 from base_caching import BaseCaching
 
+
 class MRUCache(BaseCaching):
     """
     MRUCache class
