@@ -7,3 +7,31 @@ msgstr "Welcome to Holberton"
 
 msgid "home_header"
 msgstr "Hello world!"
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "home_title"
+msgstr "Bienvenue chez Holberton"
+
+msgid "home_header"
+msgstr "Bonjour monde!"
+
+msgid "logged_in_as"
+msgstr "You are logged in as %(username)s."
+
+msgid "not_logged_in"
+msgstr "You are not logged in."
+
+msgid "logged_in_as"
+msgstr "Vous êtes connecté en tant que %(username)s."
+
+msgid "not_logged_in"
+msgstr "Vous n'êtes pas connecté."
+
+msgid "current_time"
+msgstr "Current time is %(current_time)s."
+
+msgid "current_time"
+msgstr "L'heure actuelle est %(current_time)s."
