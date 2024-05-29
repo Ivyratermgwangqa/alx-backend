@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
+"""
+Flask app with Babel setup, locale selection, and locale parameter from URL.
+"""
+
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
 class Config:
+    """
+    Configuration class for Babel.
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -13,6 +20,11 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
+    """
+    Select the best match language from the request or URL parameter.
+    Returns:
+        The best match language.
+    """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         return locale
@@ -20,6 +32,11 @@ def get_locale():
 
 @app.route('/')
 def index():
+    """
+    Route for the index page.
+    Returns:
+        Rendered HTML template for the index page.
+    """
     return render_template('4-index.html')
 
 if __name__ == "__main__":
