@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
+"""
+Flask app with Babel setup, locale selection, and mock login.
+"""
+
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 
 class Config:
+    """
+    Configuration class for Babel.
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -19,6 +26,11 @@ users = {
 }
 
 def get_user():
+    """
+    Retrieve the user from the mock database.
+    Returns:
+        The user dictionary or None.
+    """
     user_id = request.args.get('login_as')
     if user_id:
         return users.get(int(user_id))
@@ -26,6 +38,11 @@ def get_user():
 
 @babel.localeselector
 def get_locale():
+    """
+    Select the best match language from the request, URL parameter, or user settings.
+    Returns:
+        The best match language.
+    """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         return locale
@@ -36,10 +53,19 @@ def get_locale():
 
 @app.before_request
 def before_request():
+    """
+    Function to run before each request.
+    Sets the global user based on the login_as parameter.
+    """
     g.user = get_user()
 
 @app.route('/')
 def index():
+    """
+    Route for the index page.
+    Returns:
+        Rendered HTML template for the index page.
+    """
     return render_template('5-index.html')
 
 if __name__ == "__main__":
