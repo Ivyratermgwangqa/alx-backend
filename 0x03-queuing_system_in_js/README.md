@@ -87,7 +87,7 @@ This project demonstrates a queuing system using Redis and Kue in a Node.js envi
 - **`100-seat.js`**: API server for seat reservation.
 
 ## Author
-- **Your Name**
+- **Lerato Mgwangqa**
   - [GitHub](https://github.com/Ivyratermgwangqa)
 
 ---
